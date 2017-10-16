@@ -27,11 +27,23 @@ for row in peeps_file:
     #print(row)
     c.execute("INSERT INTO peeps VALUES('" + row["name"] + "', " + row["age"] + ", " + row["id"] + ")")
 
+#Displays table peeps
+c.execute("SELECT*FROM peeps;")
+print("PEEPS\n")
+for rows in c.fetchall():
+    print(rows)
+
 #Creates table for courses.csv
 c.execute("CREATE TABLE courses (code TEXT, mark INTEGER, id INTEGER)")    #run SQL statement
 for row in courses_file:
     #print(row)
     c.execute("INSERT INTO courses VALUES('" + row["code"] + "', " + row["mark"] + ", " + row["id"] + ")")
+
+#Displays table courses 
+c.execute("SELECT*FROM courses;")
+print("\n\nCOURSES\n")
+for rows in c.fetchall():
+    print(rows)
 
 #==========================================================
 db.commit() #save changes
